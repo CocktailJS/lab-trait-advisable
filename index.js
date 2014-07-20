@@ -1,4 +1,3 @@
-
 'use strict';
 
 var cocktail     = require('cocktail'),
@@ -15,7 +14,8 @@ MyClass = cocktail.mix({
 
     '@static' : {
         create: function (options) {
-            return new this(options);
+            var Class = this;
+            return new Class(options);
         }
     },
 
@@ -77,9 +77,9 @@ obj = MyClass.create({
     },
     after: {
         'initialize': function(){
-            console.log('right after init')
+            console.log('right after init');
         },
-        'doSomething': function (withParams) {
+        'doSomething': function (/*withParams*/) {
             console.log('After doSomething!');
         }
     }
