@@ -25,6 +25,8 @@ MyClass = cocktail.mix({
     },
 
 
+    // -- setters for configure
+
     setAfter: function (options) {
         var k,v;
         for (k in options){
@@ -48,6 +50,8 @@ MyClass = cocktail.mix({
             this.around(k, v);
         }
     },
+
+    // -- end setters
 
     initialize: function () {
         console.log('initialize');
@@ -88,12 +92,9 @@ obj = MyClass.create({
 
 // --- BEFORE
 
-obj.before(
-    'doSomething',
-    function(withParams) {
-         console.log('Calling with Params: '+ (withParams ? 'YES' : 'NO'));
-    }
-);
+obj.before('doSomething', function(withParams) {
+    console.log('Calling with Params: '+ (withParams ? 'YES' : 'NO'));
+});
 
 obj.doSomething();
 
@@ -109,9 +110,8 @@ obj.around('hmm', function(method, params) {
     if (typeof params[0] === 'string'){
         method.apply(this, params);
     }
-
 });
 
-obj.hmm('hhhhhh'); // prints in console
+obj.hmm('shhhhhh'); // prints in console
 
-obj.hmm({v: 1}, 'adasdasd'); // do not prints
+obj.hmm({v: 1}, 'adasdasd'); // does not print
