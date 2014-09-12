@@ -18,10 +18,10 @@ npm install
 
 ````
 
-Now just execute index.js
+Now just execute example.js
 
 ````bash
 
-node index.js
+node example.js
 
 ````

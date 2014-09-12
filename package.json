@@ -1,8 +1,8 @@
 {
-  "name": "trait-advisable",
-  "version": "0.0.0",
+  "name": "cocktail-trait-advisable",
+  "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/Advisable",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
