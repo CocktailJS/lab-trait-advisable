@@ -14,7 +14,71 @@ npm install git://github.com/CocktailJS/lab-trait-advisable.git --save
 
 ````
 
-## Try it
+## Usage
+
+Once dependency is installed, the trait module name is a bit different.
+
+> Test.js
+
+```js
+var cocktail  = require('cocktail'),
+    Advisable = require('cocktail-trait-advisable');
+
+cocktail.mix({
+    '@exports': module,
+    '@as': 'class',
+
+    '@traits': [Advisable],
+
+    constructor: function(options) {
+        var after = options.after;
+        this.param = options.param;
+        
+        if (after){
+            this.after(after.method, after.advice);
+        }
+
+        this.initialize();
+    },
+
+    initialize: function() {
+        console.log('Test initialize');
+    },
+
+    get: function() {
+        console.log('Test get');
+    }
+});
+
+```
+
+**Note**: The module name is `cocktail-trait-advisable` just to follow the name convention for CocktailJS extensions.  
+  
+Then in index.js we can use our Test.js class:
+
+> index.js
+
+```js
+var Test = require('./Test'),
+    test;
+
+
+var test = new Test({
+    param: 'param',
+    after: {
+        method: 'get',
+        advice: function() {
+            console.log('test after get');
+        }
+    }
+});
+
+test.get();
+
+```
+
+
+## Try the example
 
 Clone this repo and install dependencies
 
