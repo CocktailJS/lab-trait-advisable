@@ -6,6 +6,10 @@ The methods `around`, `after` and `before` are available on host classes or obje
 
 See example.js file for some examples.
 
+## Update
+This experiment has been moved to [https://github.com/CocktailJS/cocktail-trait-advisable](https://github.com/CocktailJS/cocktail-trait-advisable) repository and it is being maintained there.
+
+
 ## Install
 
 ````bash
